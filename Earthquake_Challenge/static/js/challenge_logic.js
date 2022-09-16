@@ -213,12 +213,12 @@ legend.onAdd = function() {
     div.innerHTML +=
       "<i style='background: " + colors[i] + "'></i> " +
       magnitudes[i] + (magnitudes[i + 1] ? "&ndash;" + magnitudes[i + 1] + "<br>" : "+");
-    }
-    return div;
-  };
+  }
+  return div;
+  }
 
-  // Finally, we our legend to the map.
-  legend.addTo(map);
+// Finally, we our legend to the map.
+legend.addTo(map);
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -226,12 +226,12 @@ legend.onAdd = function() {
 // 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
 d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(data) {
     
-  L.geoJSON(data, {
-    style: {
+  L.geoJSON(data, 
+    {
       color: "orange",
       weight: 2
-    },
-  }).addTo(tectonicPlates);
+    }
+  ).addTo(tectonicPlates);
 
   // Then we add the earthquake layer to our map.
   tectonicPlates.addTo(map);
